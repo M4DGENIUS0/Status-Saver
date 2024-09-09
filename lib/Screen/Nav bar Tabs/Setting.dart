@@ -3,6 +3,7 @@ import 'package:load_switch/load_switch.dart';
 import 'package:provider/provider.dart';
 import 'package:statussaver/State%20Management/Controller/LanguageChangeController.dart';
 import 'package:statussaver/State%20Management/ThemeProvider.dart';
+import 'package:statussaver/State%20Management/notification_provider.dart';
 import 'package:statussaver/utilz/assets.dart';
 import 'package:statussaver/widget/ThemeRadioButton.dart';
 import 'package:statussaver/widget/settngOptions.dart';
@@ -54,7 +55,7 @@ class _SettingState extends State<Setting> {
                       child: Text(
                         AppLocalizations.of(context)!.advance,
                         style:
-                            const TextStyle(fontSize: 14, color: assets.green),
+                            const TextStyle(fontSize: 14, color: assets.metaColor),
                       ),
                     ),
                   ),
@@ -68,27 +69,42 @@ class _SettingState extends State<Setting> {
                       physics: const NeverScrollableScrollPhysics(),
                       children: [
                         SettingOption(
-                          title:
-                              AppLocalizations.of(context)!.download_location,
-                          description: AppLocalizations.of(context)!
-                              .download_location_detail,
+                            title:
+                                AppLocalizations.of(context)!.download_location,
+                            description: assets.DownloadDirectory),
+                        Consumer<StatusNotifyProvider>(
+                          builder:
+                              (BuildContext context, notify, Widget? child) {
+                            return SettingOption(
+                                title:
+                                    AppLocalizations.of(context)!.notification,
+                                description: AppLocalizations.of(context)!
+                                    .notification_detail,
+                                data: LoadSwitch(
+                                  height: 25,
+                                  width: 50,
+                                  value: notify.isNotificationEnabled,
+                                  future: _getFuture,
+                                  onChange: (v) {
+                                    notify.isNotificationEnabled = v;
+                                  },
+                                  onTap: (bol) {
+                                    notify.toggleNotification(
+                                        !notify.isNotificationEnabled);
+                                    value = bol;
+                                    if (value) {
+                                      notify.initialNotification(
+                                          'Status Notifier Disabled',
+                                          '');
+                                    } else {
+                                      notify.initialNotification(
+                                          'Status Notifier Enabled',
+                                          '');
+                                    }
+                                  },
+                                ));
+                          },
                         ),
-                        SettingOption(
-                            title: AppLocalizations.of(context)!.notification,
-                            description: AppLocalizations.of(context)!
-                                .notification_detail,
-                            data: LoadSwitch(
-                              height: 25,
-                              width: 50,
-                              value: value,
-                              future: _getFuture,
-                              onChange: (v) {
-                                value = v;
-                              },
-                              onTap: (bool) {
-                                print(value);
-                              },
-                            )),
                         SettingOption(
                             title: AppLocalizations.of(context)!.auto_save,
                             description:
@@ -101,6 +117,7 @@ class _SettingState extends State<Setting> {
                               onChange: (v) {
                                 value = v;
                               },
+                              // ignore: avoid_types_as_parameter_names
                               onTap: (bool) {
                                 print(value);
                               },
@@ -117,7 +134,7 @@ class _SettingState extends State<Setting> {
                                 child: Text(
                                   value.langname!,
                                   style: const TextStyle(
-                                      color: assets.green, fontSize: 14),
+                                      color: assets.metaColor, fontSize: 14),
                                 ),
                                 onSelected: (language item) {
                                   if (language.English.name == item.name) {
@@ -236,7 +253,7 @@ class _SettingState extends State<Setting> {
                               },
                               child: Text(
                                 systemtheme.systemTheme,
-                                style: const TextStyle(color: assets.green),
+                                style: const TextStyle(color: assets.metaColor),
                               ),
                             )),
                         SettingOption(
@@ -254,7 +271,7 @@ class _SettingState extends State<Setting> {
                       child: Text(
                         AppLocalizations.of(context)!.general,
                         style:
-                            const TextStyle(fontSize: 14, color: assets.green),
+                            const TextStyle(fontSize: 14, color: assets.metaColor),
                       ),
                     ),
                   ),

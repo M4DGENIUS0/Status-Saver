@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
-import 'package:statussaver/State%20Management/Homeprovider.dart';
 import 'package:statussaver/State%20Management/ThemeProvider.dart';
 import 'package:statussaver/utilz/assets.dart';
 
+// ignore: must_be_immutable
 class ThemeRadioButton extends StatefulWidget {
   String? path;
   IconData? icon;
@@ -38,7 +38,6 @@ class _ThemeRadioButtonState extends State<ThemeRadioButton> {
   Widget build(BuildContext context) {
     final themeChanger = Provider.of<ThemeProvider>(context, listen: false);
 
-    final getvalue = Provider.of<HomeProvider>(context);
     return RadioListTile<ThemeMode>(
       title: Text(
         widget.title,

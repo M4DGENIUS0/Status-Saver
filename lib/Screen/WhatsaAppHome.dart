@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fui_kit/fui_kit.dart';
-import 'package:fui_kit/widgets/icons/icon_widget.dart';
 import 'package:provider/provider.dart';
-import 'package:badges/badges.dart' as badges;
 import 'package:statussaver/Screen/Instant_Message.dart';
 import 'package:statussaver/widget/Tabitem.dart';
 import 'package:statussaver/State%20Management/Homeprovider.dart';
@@ -13,14 +11,14 @@ import 'package:statussaver/utilz/assets.dart';
 import 'package:statussaver/widget/CustomBottomSheetRadioButton.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class WhatsaAppHome extends StatefulWidget {
+  const WhatsaAppHome({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<WhatsaAppHome> createState() => _WhatsaAppHomeState();
 }
 
-class _HomeState extends State<Home> {
+class _WhatsaAppHomeState extends State<WhatsaAppHome> {
   static const platform = MethodChannel('com.example/openwhatsapp');
 
   Future<void> _openWhatsApp() async {
@@ -41,129 +39,23 @@ class _HomeState extends State<Home> {
         backgroundColor: Theme.of(context).colorScheme.surface,
         appBar: homeProvider.selectedindex != 2
             ? AppBar(
-                title: Text(
-                  AppLocalizations.of(context)!.onboardng,
-                  style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.primary),
+                title: Hero(
+                    tag: 'whatsapp',
+                    child: Image.asset(
+                      assets.whatsapp,
+                      height: 40,
+                      width: 40,
+                    )),
+                leading: IconButton(
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
                 ),
                 actions: [
-                  GestureDetector(
-                    onTap: () async {
-                      await Future.delayed(const Duration(milliseconds: 100));
-                      // notificationSheet;
-                      showModalBottomSheet(
-                          backgroundColor:
-                              Theme.of(context).colorScheme.surface,
-                          context: context,
-                          builder: (BuildContext context) {
-                            return Container(
-                              height: 300,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Image.asset(
-                                      assets.notification,
-                                      height: 70,
-                                      width: 70,
-                                    ),
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      AppLocalizations.of(context)!.bellnoti,
-                                      style: TextStyle(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold,
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .primary),
-                                    ),
-                                    
-                                    Text(
-                                      AppLocalizations.of(context)!
-                                          .bellnotidetail,
-                                      style: TextStyle(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .secondary),
-                                    ),
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        SizedBox(
-                                          width: 120,
-                                          height: 50,
-                                          child: ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                  shape: RoundedRectangleBorder(
-                                                      side: const BorderSide(
-                                                          color: assets.green),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              40))),
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: Text(
-                                                AppLocalizations.of(context)!
-                                                    .bellno,
-                                                style: const TextStyle(
-                                                    fontSize: 17,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: assets.green),
-                                              )),
-                                        ),
-                                        SizedBox(
-                                          width: 120,
-                                          height: 50,
-                                          child: ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                  backgroundColor: assets.green,
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              40))),
-                                              onPressed: () {
-                                              },
-                                              child: Text(
-                                                AppLocalizations.of(context)!
-                                                    .bellyes,
-                                                style: const TextStyle(
-                                                    fontSize: 17,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.white),
-                                              )),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ),
-                            );
-                          });
-                    },
-                    child: badges.Badge(
-                      child: Icon(
-                        Icons.notifications_none_rounded,
-                        size: 26,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                      position: badges.BadgePosition.topEnd(),
-                      showBadge: true,
-                      ignorePointer: false,
-                    ),
-                  ),
                   const SizedBox(
                     width: 8,
                   ),
@@ -175,7 +67,6 @@ class _HomeState extends State<Home> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-
                   IconButton(
                     icon: FUI(
                         height: 23,
@@ -244,7 +135,7 @@ class _HomeState extends State<Home> {
                                               context,
                                               MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const Home(),
+                                                    const WhatsaAppHome(),
                                               ));
                                         },
                                         child: Text(
@@ -261,7 +152,6 @@ class _HomeState extends State<Home> {
                           });
                     },
                   ),
-                 
                   IconButton(
                     icon: FUI(
                       RegularRounded.PAPER_PLANE,
@@ -277,7 +167,6 @@ class _HomeState extends State<Home> {
                           ));
                     },
                   ),
-                  
                   InkWell(
                       onTap: () {},
                       child: const Image(
@@ -319,7 +208,22 @@ class _HomeState extends State<Home> {
                     )),
               )
             : null,
-        body: assets.tabItems.elementAt(homeProvider.selectedindex),
+        body: StreamBuilder<List<Widget>>(
+          stream: assets
+              .getWhatsappTabbTabItems(), // Fetch the tab items from the assets class
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text("Error occurred: ${snapshot.error}"));
+            } else if (snapshot.hasData) {
+              return snapshot.data!.elementAt(homeProvider
+                  .selectedindex); // Access the correct widget based on selected index
+            } else {
+              return Center(child: Text("Unexpected error"));
+            }
+          },
+        ),
         bottomNavigationBar: FlashyTabBar(
           backgroundColor: Theme.of(context).colorScheme.surface,
           iconSize: 25,
@@ -347,15 +251,6 @@ class _HomeState extends State<Home> {
                 color: Theme.of(context).colorScheme.secondary,
               ),
               title: Text(AppLocalizations.of(context)!.download),
-            ),
-            FlashyTabBarItem(
-              activeColor: assets.green,
-              inactiveColor: Theme.of(context).colorScheme.secondary,
-              icon: Icon(
-                Icons.settings,
-                color: Theme.of(context).colorScheme.secondary,
-              ),
-              title: Text(AppLocalizations.of(context)!.setting),
             ),
           ],
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_share/flutter_share.dart';
+import 'package:flutter_native_api/flutter_native_api.dart';
 import 'package:fui_kit/maps/regular_rounded.dart';
 import 'package:fui_kit/widgets/icons/icon_widget.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
@@ -22,9 +22,7 @@ class _InstantMessageState extends State<InstantMessage> {
   @override
   Widget build(BuildContext context) {
     final _focusNode = FocusNode();
-    var phone = '';
     var message = '';
-    var url = 'https://wa.me/$phone?text=$message';
 
     final realphonenumber = Provider.of<Direct_Chat>(context);
     return Scaffold(
@@ -232,9 +230,7 @@ class _InstantMessageState extends State<InstantMessage> {
                   onPressed: () async {
                     try{
                       var url = 'https://wa.me/${realphonenumber.formattedNumber}?text=$message';
-                    await FlutterShare.share(title: 'Share Contact: ',
-                    linkUrl: url
-                    );
+                    await FlutterNativeApi.shareText('Share now! $url');
                     }catch(e){
                       print("Error: $e");
                     }

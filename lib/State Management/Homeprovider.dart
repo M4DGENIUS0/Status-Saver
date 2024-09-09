@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomeProvider with ChangeNotifier {
   String? _selectedValue;
@@ -16,11 +15,13 @@ String get _index => index;
     _selectedValue = value;
     notifyListeners();
   }
+   // ignore: non_constant_identifier_names
    Selectedvalue(int value) {
     selectedindex = value;
     notifyListeners();
   }
 
+  // ignore: non_constant_identifier_names
   BottomSheetradio(String value){
     index = value;
     notifyListeners();

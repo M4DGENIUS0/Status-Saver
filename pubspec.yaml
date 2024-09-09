@@ -55,6 +55,18 @@ dependencies:
     sdk: flutter
   share_plus: ^10.0.2
   flutter_share: ^2.0.0
+  permission_handler: ^11.3.1
+  path_provider: ^2.1.4
+  image_gallery_saver: ^2.0.3
+  flutter_native_api: ^1.1.0
+  video_thumbnail: ^0.5.3
+  chewie: ^1.8.3
+  video_player: ^2.9.1
+  gradient_circular_progress_indicator: ^0.0.4
+  shimmer_animation: ^2.1.0+1
+  swipe_refresh: ^1.1.2
+  flutter_local_notifications: ^17.2.2
+  workmanager: ^0.5.2
     
 
 dev_dependencies:
@@ -95,10 +107,17 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Comfortaa
+      fonts:
+        - asset: assets/fonts/Comfortaa.ttf
+    - family: LilitaOne
+      fonts:
+        - asset: assets/fonts/LilitaOne.ttf
+    - family: Play
+      fonts:
+        - asset: assets/fonts/Play.ttf
+  
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

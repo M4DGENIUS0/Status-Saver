@@ -3,9 +3,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:statussaver/utilz/assets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class StatusPicturePermission extends StatelessWidget {
+class StatusPicturePermission extends StatefulWidget {
   const StatusPicturePermission({super.key});
 
+  @override
+  State<StatusPicturePermission> createState() =>
+      _StatusPicturePermissionState();
+}
+
+class _StatusPicturePermissionState extends State<StatusPicturePermission> {
   @override
   Widget build(BuildContext context) {
     return Center(

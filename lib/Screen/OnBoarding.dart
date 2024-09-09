@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:statussaver/Screen/Home.dart';
+import 'package:statussaver/Screen/WhatsaAppHome.dart';
 import 'package:statussaver/utilz/assets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -43,7 +43,7 @@ class OnBoardScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Home(),
+                          builder: (context) => const WhatsaAppHome(),
                         ));
                   },
                   child: Text(
