@@ -11,26 +11,22 @@ class StatusNotifyProvider with ChangeNotifier {
   StatusNotifyProvider() {
     _loadPreferences();
   }
-set isNotificationEnabled(bool value) {
 
-    _isNotificationEnabled = value;
-
-    notifyListeners();
-
-  }
   bool get isNotificationEnabled => _isNotificationEnabled;
+
+  set isNotificationEnabled(bool value) {
+    _isNotificationEnabled = value;
+    notifyListeners();
+  }
 
   Future<void> _loadPreferences() async {
     _prefs = await SharedPreferences.getInstance();
     _isNotificationEnabled = _prefs?.getBool('notification_enabled') ?? false;
+
     if (_isNotificationEnabled) {
-      Workmanager().initialize(callbackDispatcher);
-      Workmanager().registerPeriodicTask(
-        '1',
-        'checkStatusTask',
-        frequency: Duration(minutes: 15),
-      );
+      _startBackgroundTask();
     }
+
     notifyListeners();
   }
 
@@ -39,15 +35,11 @@ set isNotificationEnabled(bool value) {
     _prefs?.setBool('notification_enabled', _isNotificationEnabled);
 
     if (_isNotificationEnabled) {
-      Workmanager().initialize(callbackDispatcher);
-      Workmanager().registerPeriodicTask(
-        '1',
-        'checkStatusTask',
-        frequency: Duration(minutes: 15),
-      );
+      _startBackgroundTask();
     } else {
-      Workmanager().cancelByTag('checkStatusTask');
+      _turnOffBackgroundTask();
     }
+
     notifyListeners();
   }
 
@@ -55,5 +47,26 @@ set isNotificationEnabled(bool value) {
     final notificationService = NotificationService();
     await notificationService.initialize();
     await notificationService.showNotification(title!, message!);
+  }
+
+  // New function to explicitly turn off notifications
+  void turnOffNotification() {
+    _isNotificationEnabled = false;
+    _prefs?.setBool('notification_enabled', _isNotificationEnabled);
+    _turnOffBackgroundTask();
+    notifyListeners();
+  }
+
+  void _startBackgroundTask() {
+    Workmanager().initialize(callbackDispatcher);
+    Workmanager().registerPeriodicTask(
+      '1',
+      'checkStatusTask',
+      frequency: const Duration(hours: 3),
+    );
+  }
+
+  void _turnOffBackgroundTask() {
+    Workmanager().cancelByTag('checkStatusTask');
   }
 }

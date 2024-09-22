@@ -14,7 +14,7 @@ class StatusProvider with ChangeNotifier {
       Workmanager().registerPeriodicTask(
         '1',
         'checkStatusTask',
-        frequency: Duration(minutes: 15),
+        frequency: const Duration(minutes: 15),
       );
     } else {
       Workmanager().cancelByTag('checkStatusTask');

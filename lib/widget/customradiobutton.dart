@@ -8,7 +8,7 @@ class CustomRadioButton extends StatelessWidget {
   final String assetPath;
   final double elevation;
 
-  CustomRadioButton({
+  const CustomRadioButton({super.key, 
     required this.value,
     required this.assetPath,
     this.elevation = 2.0,

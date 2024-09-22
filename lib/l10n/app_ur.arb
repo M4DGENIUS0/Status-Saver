@@ -54,7 +54,31 @@
     "about":"ورژن",
     "system_default":"سسٹم ڈیفالٹ",
     "dark":"اندھیرا",
-    "light":"روشنی"
+    "light":"روشنی",
+    "homee":"گھر",
+    "instagram":"انسٹاگرام",
+    "facebook":"فیس بک",
+    "downloadReel":"ریل ڈاؤن لوڈ کریں۔",
+    "downloadStory":"کہانی ڈاؤن لوڈ کریں۔",
+    "download_Instagram_Reels_Videos":"انسٹاگرام ریلز اور ویڈیوز ڈاؤن لوڈ کریں۔",
+    "enter_IG_URL":"IG URL درج کریں۔",
+    "paste_link_here":"لنک یہاں پیسٹ کریں۔",
+    "downloadIG":"ڈاؤن لوڈ کریں۔",
+    "pasteIG":"پیسٹ",
+    "open_Instagram":"انسٹاگرام کھولیں۔",
+    "open_Facebook":"فیس بک کھولیں۔",
+    "open_Whatsapp": "واٹس ایپ کھولیں۔",
+    "send_Message":"پیغام بھیجیں۔",
+    "download_media":"ویڈیو ڈاؤن لوڈ کریں۔",
+    "download_Facebook_Reels_Videos":"فیس بک ریلز اور ویڈیوز ڈاؤن لوڈ کریں۔",
+    "enter_FB_Videos":"FB ویڈیو یا Reels url درج کریں۔",
+    "media_is_Downloaded":"میڈیا ڈاؤن لوڈ ہو گیا ہے۔",
+    "video_is_Deleted":"!ویڈیو ڈیلیٹ کر دی گئی ہے",
+    "download_Started":"!ڈاؤن لوڈ شروع ہو گیا۔",
+    "meta_media":"میٹا میڈیا",
+    "explore":"ایکسپلورر",
+    "internet_error":"انٹرنیٹ کی خرابی!"
+
 
 
 

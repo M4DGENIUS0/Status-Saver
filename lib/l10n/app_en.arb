@@ -53,7 +53,32 @@
     "about":"About",
     "system_default":"System Default",
     "dark":"Dark Mode",
-    "light":"Light Mode"
+    "light":"Light Mode",
+    "homee":"Home",
+    "instagram":"Instagram",
+    "facebook":"Facebook",
+    "downloadReel":"Download Reel",
+    "downloadStory":"Download Story",
+    "download_Instagram_Reels_Videos":"Download Instagram Reels & Videos",
+    "enter_IG_URL":"Enter IG URL",
+    "paste_link_here":"Paste Link Here",
+    "downloadIG":"Download",
+    "pasteIG":"Paste",
+    "open_Instagram":"Open Instagram",
+    "open_Facebook":"Open Facebook",
+    "open_Whatsapp": "Open Whatsapp",
+    "send_Message":"Send message",
+    "download_media":"Download video",
+    "download_Facebook_Reels_Videos":"Download Facebook Reels & Videos",
+    "enter_FB_Videos":"Enter FB Video or Reels url",
+    "media_is_Downloaded":"Media is Downloaded",
+    "video_is_Deleted":"Video is Deleted!",
+    "download_Started":"Download Started!",
+    "meta_media":"Meta Media",
+    "explore":"Explore",
+    "internet_error":"Internet Error!"
+   
+
 
 
 

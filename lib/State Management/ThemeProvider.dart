@@ -24,12 +24,12 @@ class ThemeProvider with ChangeNotifier {
 
   var thememode = ThemeMode.light;
   ThemeMode get _thememode => thememode;
-  setTheme(_thememode) {
-    thememode = _thememode;
-    if (_thememode == ThemeMode.light) {
+  setTheme(thememode) {
+    thememode = thememode;
+    if (thememode == ThemeMode.light) {
       _systemTheme = 'Light Mode';
       themeData = lightMode;
-    } else if (_thememode == ThemeMode.dark) {
+    } else if (thememode == ThemeMode.dark) {
       _systemTheme = 'Dark Mode';
        themeData = darkMode;
     } else {

@@ -12,7 +12,7 @@ class FetchDownloadStatus with ChangeNotifier {
   bool get Downloaded => _Downloaded;
 
   Future<String> createFolderInAppDocDir(String filename) async {
-    final Directory appDocDirFolder = Directory(assets.DownloadDirectory);
+    final Directory appDocDirFolder = Directory(assets.DownloadDirectoryWhatsapp);
 
     if (await appDocDirFolder.exists()) {
       if (appDocDirFolder.existsSync()) {
@@ -31,13 +31,14 @@ class FetchDownloadStatus with ChangeNotifier {
       }
       notifyListeners();
       return appDocDirFolder.path;
+
     } else {
       try {
-        final Directory _appDocDirNewFolder =
+        final Directory appDocDirNewFolder =
             await appDocDirFolder.create(recursive: true);
         _Downloaded = true;
         notifyListeners();
-        return _appDocDirNewFolder.path;
+        return appDocDirNewFolder.path;
       } catch (e) {
         _Downloaded = false;
         notifyListeners();

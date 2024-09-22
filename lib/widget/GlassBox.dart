@@ -14,7 +14,7 @@ class Glassbox extends StatelessWidget {
   final String imgPath; // Use a more descriptive name
   final String title;
   final VoidCallback onTap;
-   Glassbox(
+   const Glassbox(
       {super.key,
       required this.height,
       required this.width,
@@ -26,7 +26,7 @@ class Glassbox extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       child: Container(
         
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         
         height: height,
         width: width,
@@ -41,13 +41,13 @@ class Glassbox extends StatelessWidget {
               child: Container(
                 height: height,
                 width: width,
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 ),
             ),
             //Gradient Efect
             Container(
               
-              padding: EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
               
               decoration: BoxDecoration(
                 
@@ -90,7 +90,7 @@ class Glassbox extends StatelessWidget {
                 ),
               ],
             ),
-            Align( 
+            const Align( 
               alignment: Alignment.bottomRight,
               child: FUI(RegularRounded.ARROW_RIGHT),
             ),

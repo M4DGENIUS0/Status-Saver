@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HomeProvider with ChangeNotifier {
   String? _selectedValue;
-  String? get selectedValue => _selectedValue;
+  String? get selectedValue => _selectedValue; 
   
   int selectedindex = 0;
 int get _selectedindex => selectedindex;

@@ -18,7 +18,7 @@ class ThemeRadioButton extends StatefulWidget {
   bool ImgorIcon;
 
   ThemeRadioButton({
-    Key? key,
+    super.key,
     this.path,
     this.icon,
     required this.title,
@@ -26,7 +26,7 @@ class ThemeRadioButton extends StatefulWidget {
     this.Groupvalue,
     this.color,
     required this.ImgorIcon,
-  }) : super(key: key);
+  });
 
   @override
   State<ThemeRadioButton> createState() => _ThemeRadioButtonState();

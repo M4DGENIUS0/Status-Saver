@@ -5,7 +5,7 @@ class DetailPageBar extends StatelessWidget {
   final VoidCallback? share;
   final VoidCallback? download;
 
-  DetailPageBar({super.key,  this.repost,  this.share,  this.download});
+  const DetailPageBar({super.key,  this.repost,  this.share,  this.download});
 
   @override
   Widget build(BuildContext context) {

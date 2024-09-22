@@ -6,8 +6,8 @@ class CustomPageRouteBuilder extends PageRouteBuilder {
   CustomPageRouteBuilder({required this.child})
       : super(
           pageBuilder: (context, animation, secondaryAnimation) => child,
-          transitionDuration: Duration(milliseconds: 700),
-          reverseTransitionDuration: Duration(milliseconds: 700),
+          transitionDuration: const Duration(milliseconds: 700),
+          reverseTransitionDuration: const Duration(milliseconds: 700),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             // Fade transition animation
             var fadeAnimation = Tween(begin: 0.0, end: 1.0).animate(
